@@ -1,6 +1,5 @@
 import unittest
 from app import app
-from urllib.parse import quote
 
 class FlaskAppTests(unittest.TestCase):
     
@@ -49,7 +48,6 @@ class FlaskAppTests(unittest.TestCase):
 
     def test_calc_add(self):
         """Тест сложения в калькуляторе"""
-        # Используем query_string вместо параметров в URL
         response = self.client.get('/calc', query_string={'a': 5, 'b': 3, 'operation': '+'})
         self.assertEqual(response.status_code, 200)
         response_text = response.data.decode('utf-8')
@@ -109,6 +107,7 @@ class FlaskAppTests(unittest.TestCase):
         response = self.client.get('/calc', query_string={'a': '', 'b': '', 'operation': '+'})
         self.assertEqual(response.status_code, 200)
         response_text = response.data.decode('utf-8')
+        # Исправляем ожидаемый результат
         self.assertEqual(response_text, "Результат: 0")
 
     def test_calc_negative_numbers(self):

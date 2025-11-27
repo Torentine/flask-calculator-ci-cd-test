@@ -61,11 +61,15 @@ def calculator():
         else:
             return "Неверная операция"
         
-        # Форматируем результат: убираем .0 для целых чисел
-        if result.is_integer():
-            return f"Результат: {int(result)}"
+        # Улучшенное форматирование результата
+        # Сначала преобразуем результат в float для единообразия
+        result_float = float(result)
+        
+        # Проверяем, является ли число целым
+        if result_float.is_integer():
+            return f"Результат: {int(result_float)}"
         else:
-            return f"Результат: {result}"
+            return f"Результат: {result_float}"
     except ValueError:
         return "Ошибка: неверный формат числа"
 
