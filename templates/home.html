@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>Привет, мир!</h1>
+    <b>Я изучаю <i>Flask</i></b>
+
+    <h2>Калькулятор</h2>
+    <form action="/calc" method="get">
+        Число 1: <input type="text" name="a" required><br>
+        Число 2: <input type="text" name="b" required><br>
+        Операция:
+        <select name="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select><br>
+        <button type="submit">Вычислить</button>
+    </form>
+</body>
+</html>
